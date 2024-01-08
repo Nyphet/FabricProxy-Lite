@@ -12,6 +12,9 @@ group = project.maven_group
 
 repositories {
 	mavenCentral()
+	maven {
+		url = uri("https://repo.opencollab.dev/main/")
+	}
 }
 
 dependencies {
@@ -24,6 +27,9 @@ dependencies {
 	modImplementation fabricApi.module("fabric-networking-api-v1", project.fabric_version)
 	include fabricApi.module("fabric-api-base", project.fabric_version)
 	include fabricApi.module("fabric-networking-api-v1", project.fabric_version)
+
+	// Floodgate Dependency.
+	modImplementation "org.geysermc.floodgate:api:2.2.2-SNAPSHOT"
 
 	modImplementation "com.moandjiezana.toml:toml4j:0.7.2"
 	include "com.moandjiezana.toml:toml4j:0.7.2"

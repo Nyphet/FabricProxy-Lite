@@ -26,9 +26,7 @@ public class FabricProxyLite implements DedicatedServerModInitializer, IMixinCon
     public void onInitializeServer() {
         // Packet receiver
         ServerLoginNetworking.registerGlobalReceiver(PLAYER_INFO_CHANNEL, new PacketHandler(config)::handleVelocityPacket);
-        if (!config.getHackEarlySend()) {
-            ServerLoginConnectionEvents.QUERY_START.register((handler, server, sender, synchronizer) -> sender.sendPacket(PLAYER_INFO_CHANNEL, PLAYER_INFO_PACKET));
-        }
+        ServerLoginConnectionEvents.QUERY_START.register((handler, server, sender, synchronizer) -> sender.sendPacket(PLAYER_INFO_CHANNEL, PLAYER_INFO_PACKET));
     }
 
     // Only load hack mixin if enabled
@@ -58,9 +56,7 @@ public class FabricProxyLite implements DedicatedServerModInitializer, IMixinCon
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return mixinClassName.equals("one.oktw.mixin.hack.ServerLoginNetworkHandler_EarlySendPacket") && config.getHackEarlySend()
-                || mixinClassName.equals("one.oktw.mixin.hack.ServerLoginNetworkHandler_SkipKeyPacket") && config.getHackOnlineMode()
-                || mixinClassName.endsWith("HackMessageChain") && config.getHackMessageChain();
+        return mixinClassName.equals("one.oktw.mixin.hack.ServerLoginNetworkHandler_EarlySendPacket") || mixinClassName.equals("one.oktw.mixin.hack.ServerLoginNetworkHandler_SkipKeyPacket") && config.getHackOnlineMode() || mixinClassName.endsWith("HackMessageChain") && config.getHackMessageChain();
     }
 
     @Override

@@ -3,7 +3,6 @@ package one.oktw;
 @SuppressWarnings({"FieldCanBeLocal", "FieldMayBeFinal"})
 public class ModConfig {
     private boolean hackOnlineMode = true;
-    private boolean hackEarlySend = false;
     private boolean hackMessageChain = true;
     private String disconnectMessage = "This server requires you to connect with Velocity.";
     private String secret = "";
@@ -21,15 +20,6 @@ public class ModConfig {
         String env = System.getenv("FABRIC_PROXY_HACK_ONLINE_MODE");
         if (env == null) {
             return hackOnlineMode;
-        } else {
-            return Boolean.parseBoolean(env);
-        }
-    }
-
-    public boolean getHackEarlySend() {
-        String env = System.getenv("FABRIC_PROXY_HACK_FABRIC_API");
-        if (env == null) {
-            return hackEarlySend;
         } else {
             return Boolean.parseBoolean(env);
         }

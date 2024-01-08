@@ -12,6 +12,7 @@ import net.minecraft.text.Text;
 import one.oktw.mixin.core.ClientConnection_AddressAccessor;
 import one.oktw.mixin.core.ServerLoginNetworkHandlerAccessor;
 import org.apache.logging.log4j.LogManager;
+import org.geysermc.floodgate.api.FloodgateApi;
 
 class PacketHandler {
     private final ModConfig config;
@@ -51,7 +52,7 @@ class PacketHandler {
                 return;
             }
 
-            if (config.getHackEarlySend()) {
+            if (!FloodgateApi.getInstance().isFloodgatePlayer(profile.getId())) {
                 handler.onHello(new LoginHelloC2SPacket(profile.getName(), profile.getId()));
             }
 

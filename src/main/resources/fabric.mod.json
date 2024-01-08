@@ -5,11 +5,12 @@
   "name": "FabricProxy Lite",
   "description": "Support forward player data from proxy",
   "authors": [
-    "james58899"
+    "james58899",
+    "CystalSpider"
   ],
   "contact": {
-    "homepage": "https://github.com/OKTW-Network/FabricProxy-Lite",
-    "sources": "https://github.com/OKTW-Network/FabricProxy-Lite"
+    "homepage": "https://github.com/Nyphet/FabricProxy-Lite",
+    "sources": "https://github.com/Nyphet/FabricProxy-Lite"
   },
   "license": "MIT",
   "environment": "server",
