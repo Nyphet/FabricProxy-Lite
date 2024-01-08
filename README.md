@@ -7,11 +7,7 @@ This will have the better compatibility with other mods.
 
 ## Important
 
-**LuckPerms need enable `hackEarlySend` in config.**
-
-Because Fabric-API can't send packet before QUERY_START event, so player info(UUID) will not ready at QUERY_START event.
-
-Enable `hackEarlySend` will use mixin for early send packet to velocity.
+This is a modified version of the original FabricProxy-Lite made to work with Floodgate and LuckPerms to fix a bug that prevented Bedrock players to have custom skins.
 
 ## Setup
 
